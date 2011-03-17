@@ -1,0 +1,210 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, q, small, strong, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+article, aside, figure { display: block; }
+figure img { display: block; }
+figcaption, hgroup, footer, header, nav, section, video, object { display: block; }
+a img { border: 0; }
+figure { position: relative; }
+figure img { width: 100%; }
+article:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+aside:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+div:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+footer:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+form:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+header:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+nav:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+section:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+ul:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+_article, _aside, _div, _footer, _form, _header, _nav, _section, _ul { zoom: 1; }
+p {
+  margin-bottom: 23.8px;
+  letter-spacing: 0px;
+}
+p:last-child { margin-bottom: 0; }
+h1, h2, h3 {
+  letter-spacing: -1px;
+  padding: 0;
+  margin-bottom: 10px;
+}
+h1 {
+  font-size: 36px;
+  color: #444444;
+}
+h2 {
+  color: #666666;
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: -1.5px;
+}
+h3 { color: #444444; }
+a {
+  color: #3d7cb1;
+  border-bottom: 1px dotted #cccccc;
+  text-decoration: none;
+}
+a:hover { color: #111111; }
+a:focus { color: #111111; }
+em {
+  text-style: italic;
+  color: #666666;
+}
+strong { text-weight: bold; }
+small {
+  color: #999999;
+  font-size: 11px;
+}
+blockquote {
+  padding-left: 15px;
+  border-left: 5px solid #cccccc;
+  color: #666666;
+  margin-bottom: 23.8px;
+}
+code {
+  font: 12px/1.5 "Monaco", monospace, sans-serif;
+  padding: 10px;
+  background: rgba(43, 43, 43, 0.99);
+  color: #ffffff;
+  white-space: pre;
+  display: block;
+}
+code .keyword { color: #cc7833; }
+code .function .title { color: #da4939; }
+code .class .title { color: #ffffff; }
+code .number { color: #a5c261; }
+code .string { color: #a5c261; }
+code .built_in { color: #6e9cbe; }
+code .comment {
+  color: #bc9458;
+  font-style: italic;
+}
+code .decorator { color: #ffc66d; }
+html {
+  border-top: 2px solid #29557b;
+  font: 14px/1.75 "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 200;
+  color: #111111;
+  background: #ffffff;
+  letter-spacing: -0.5px;
+}
+body {
+  width: 640px;
+  margin: 20px auto;
+  background: none;
+}
+body.article article h1 {
+  font-size: 26px;
+  color: #111111;
+}
+article { margin-top: 20px; }
+article header { margin-bottom: 5px; }
+article header h1 {
+  font-size: 22px;
+  margin: 0;
+}
+article header h1 a {
+  color: #666666;
+  border: 0;
+}
+article header h2 {
+  font-size: inherit;
+  color: #999999;
+  font-weight: normal;
+  letter-spacing: inherit;
+  font-size: 12px;
+}
+article footer {
+  text-align: right;
+  margin-top: 10px;
+}
+article small.tags {
+  background: url(../images/tag.png) center left no-repeat;
+  padding-left: 24px;
+  height: 20px;
+  display: inline-block;
+}
+article small.tags a {
+  color: #666666;
+  border: none;
+}
+article small.tags a:hover { color: #111111; }
+article small.tags a:focus { color: #111111; }
+h2.comments {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #cccccc;
+}
+article.comment {
+  padding-left: 18px;
+  border-left: 2px solid #eeeeee;
+}
+article.comment h4 {
+  font-weight: normal;
+  font-size: 11px;
+  color: #666666;
+}
+a.permalink {
+  display: block;
+  float: right;
+  border: none;
+  color: #cccccc;
+}
+a.permalink:hover { color: #666666; }
+a.permalink:focus { color: #666666; }
+footer { margin-top: 40px; }

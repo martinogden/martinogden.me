@@ -1,0 +1,6 @@
+# svn+http://code.djangoproject.com/svn/django/trunk/
+
+path.py
+django-taggit
+south
+fabric
