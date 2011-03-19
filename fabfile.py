@@ -40,10 +40,13 @@ def virtualenv(command):
 def django(command):
     virtualenv('django-admin.py %s' % command)
 
+def touch():
+    run('service apache2 graceful')
+
 def deploy():
     run(' rm -R %s' % env.directory)
     _put_dir(settings.PROJECT_ROOT, env.directory)
-    run('service apache2 graceful')
+    touch()
 
 def syncdb():
     django('syncdb')

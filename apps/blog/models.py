@@ -11,7 +11,7 @@ class Article(BaseTimestampModel):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique_for_date='published_at')
 
-    tease = models.CharField(max_length=255, blank=True, null=True)
+    tease = models.CharField(max_length=255)
     content = models.TextField()
 
     published_at = models.DateTimeField()
