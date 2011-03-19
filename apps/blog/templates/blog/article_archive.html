@@ -2,7 +2,8 @@
 
 {% block header %}
 <hgroup>
-  <h1>Hello, welcome to my blog.</h1>
+  <h1>Hello, I'm Martin Ogden.</h1>
+{% comment %}
   <h2 itemscope itemtype="http://data-vocabulary.org/Person">
      I'm <a itemprop="name" href="/about" rel="author">Martin Ogden</a>: 
     <span itemprop="role">Lead Developer</span> @ 
@@ -14,6 +15,7 @@
     </span>
   </h2>
 </hgroup>
+{% endcomment %}
 {% endblock header %}
 
 {% block content %}
@@ -27,8 +29,9 @@
       <h1>
         <a href="{{ article.get_absolute_url }}" rel="bookmark" title="{{ article }}">{{ article }}</a>
       </h1>
-      <h2>By <a href="http://martinogden.me/" rel="author">Martin Ogden</a> on 
-        <time datetime="{{ article.published_at|date:'c' }}" pubdate>{{ article|date:'jS N Y' }}</time>
+      <h2>
+        <a href="http://martinogden.me/" rel="author">Martin Ogden</a> | 
+        <time datetime="{{ article.published_at|date:'c' }}" pubdate>{{ article.published_at|date:'jS N Y' }}</time>
       </h2>
     </hgroup>
   </header>

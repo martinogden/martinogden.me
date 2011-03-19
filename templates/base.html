@@ -7,12 +7,13 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/layout.css">
-  <!-- Make minor type adjustments for 1024 monitors -->
-  <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/smaller_screen.css" media="only screen and (max-width: 1023px)">
+  {# <!-- Make minor type adjustments for 1024 monitors --> #}
+  {#   <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/smaller_screen.css" media="only screen and (max-width: 1023px)"> #}
+  <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/mobile.css" media="handheld, only screen and (max-width: 767px)" />
 
   <link rel="alternate" type="application/rss+xml" title="Martin Ogden's Blog (RSS 2.0)" href="/feed/">
 </head>
-<body>
+<body class="{% block body_class %}{% endblock body_class %}">
   <header class="main">
     {% block header %}{% endblock header %}
   </header>
@@ -22,8 +23,8 @@
   <footer>
     <small class="copyright">
       &copy; Copyright 2011 <a href="http://martinogden.me/" rel="author">Martin Ogden</a>. 
-      Read more about <a href="/about/" rel="author">the author</a> or subscribe to <a href="/feeds/" rel="alternate">feeds</a>. 
-      All content licensed for use under <a rel="licence" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 unported</a>.
+      Read more about <a href="/about/" rel="author">the author</a> or subscribe to <a href="{% url feed %}" rel="alternate">feed</a>. 
+      Licensed for use under <a rel="licence" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 unported</a>.
     </small>
   </footer>
 

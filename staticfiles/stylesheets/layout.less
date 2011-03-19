@@ -67,14 +67,13 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 36px;
     color: @dgrey;
 }
 h2 {
     color: @mgrey;
-    font-size: 20px;
+    font-size: 1.5em;
     font-weight: normal;
-    letter-spacing: -1.5px;
+    letter-spacing: -0.1em;
 }
 h3 {
     color: @dgrey;
@@ -100,7 +99,7 @@ strong {
 }
 small {
     color: @lgrey;
-    font-size: 11px;
+    font-size: 0.8em;
 }
 
 // Blockquotes
@@ -165,10 +164,19 @@ body {
     background: none;
 }
 
+header.main {
+  h1 {
+    font-size: 3.4em;
+    color: #111;
+    letter-spacing: -0.065em;
+    margin: 0;
+  }
+}
+
 body.article {
     article {
         h1 {
-            font-size: 26px;
+            // font-size: 2em;
             color: @black;
         }
     }
@@ -179,7 +187,7 @@ article {
     header {
         margin-bottom: 5px;
         h1 {
-            font-size: 22px;
+            font-size: 1.5714em;
             margin: 0;
             a {
                 color: @mgrey;
@@ -223,7 +231,7 @@ article.comment {
     border-left: 2px solid #EEE;
     h4 {
         font-weight: normal;
-        font-size: 11px;
+        font-size: 0.8em;
         color: @mgrey;
     }
 }

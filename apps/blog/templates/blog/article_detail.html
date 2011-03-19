@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% block body_class %}article{% endblock body_class %}
 {% block title %}{{ article }} | {% endblock title %}
 
 {% block content %}
@@ -10,7 +11,8 @@
         can use H(n>1) headings more semantically in markup -->
       <hgroup>
         <h1>{{ article }}</h1>
-        <h2>By <a href="http://martinogden.me/" rel="author">Martin Ogden</a> on 
+        <h2>
+          <a href="http://martinogden.me/" rel="author">Martin Ogden</a> | 
           <time datetime="{{ article.published_at|date:'c' }}" pubdate>{{ article.published_at|date:'jS N Y' }}</time>
         </h2>
       </hgroup>
@@ -18,7 +20,7 @@
     {{ article.content|safe }}
 
     <footer>
-      {% if article.tags.count %}
+      {% if article.tags__count %}
       <small class="tags">
         {% for tag in article.tags.all %}
         <a href="" rel="tag">{{ tag }}</a>{% if forloop.last %}.{% else %},{% endif %}

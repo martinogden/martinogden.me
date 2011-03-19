@@ -83,15 +83,12 @@ h1, h2, h3 {
   padding: 0;
   margin-bottom: 10px;
 }
-h1 {
-  font-size: 36px;
-  color: #444444;
-}
+h1 { color: #444444; }
 h2 {
   color: #666666;
-  font-size: 20px;
+  font-size: 1.5em;
   font-weight: normal;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.1em;
 }
 h3 { color: #444444; }
 a {
@@ -108,7 +105,7 @@ em {
 strong { text-weight: bold; }
 small {
   color: #999999;
-  font-size: 11px;
+  font-size: 0.8em;
 }
 blockquote {
   padding-left: 15px;
@@ -148,14 +145,17 @@ body {
   margin: 20px auto;
   background: none;
 }
-body.article article h1 {
-  font-size: 26px;
+header.main h1 {
+  font-size: 3.4em;
   color: #111111;
+  letter-spacing: -0.065em;
+  margin: 0;
 }
+body.article article h1 { color: #111111; }
 article { margin-top: 20px; }
 article header { margin-bottom: 5px; }
 article header h1 {
-  font-size: 22px;
+  font-size: 1.5714em;
   margin: 0;
 }
 article header h1 a {
@@ -196,7 +196,7 @@ article.comment {
 }
 article.comment h4 {
   font-weight: normal;
-  font-size: 11px;
+  font-size: 0.8em;
   color: #666666;
 }
 a.permalink {
