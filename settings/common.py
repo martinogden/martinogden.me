@@ -77,7 +77,7 @@ STATICFILES_FINDERS = (
 )
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
-TEMPLATE_CONTEXT_PROCESSORS += ()
+TEMPLATE_CONTEXT_PROCESSORS += ('django.core.context_processors.request',)
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'zlsmb8l(s((xmq37@e15r)u6d46d+mcqe&gq1$q^quyhv+6#z7'
@@ -104,6 +104,9 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'blog',
+    # 'snippets',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -111,12 +114,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.comments',
 
     'south',
     'taggit',
-
-    'blog',
-    # 'snippets',
 )
 
 # A sample logging configuration. The only tangible logging

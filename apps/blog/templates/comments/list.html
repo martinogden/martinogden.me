@@ -1,0 +1,17 @@
+{% load comments %}
+    <h2 class="comments" id="comments">{{ comment_list|length }} Comment{{ comment_list|length|pluralize }}</h2>
+    <section class="comments">
+{% for comment in comment_list %}
+      <article class="comment" id="comment-{{ comment.pk }}">
+        <h4>
+          Posted by {% if comment.url %}<a href="{{ comment.url }}" rel="author">{{ comment.name }}</a>{% else %}{{ comment.name }}{% endif %} on 
+          <time datetime="{{ comment.submit_date|date:'c' }}">{{ comment.submit_date|date:'jS N Y G:m' }}</time>. 
+          <a class="permalink" href="{% get_comment_permalink comment %}" rel="bookmark">Permalink</a>
+        </h4>
+        {{ comment.comment }}
+      </article>
+
+{% empty %}
+      <p>There are no comments for this article.</p>
+{% endfor %}
+    </section>

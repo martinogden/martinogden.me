@@ -1,0 +1,19 @@
+{% load comments %}
+{% get_comment_count for article as comment_count %}
+
+<header>
+  <!--
+  HTML5 scopes Headings, therefore we 
+    can use H(n>1) headings more semantically in markup -->
+  <hgroup>
+    <h1>
+      <a href="{{ article.get_absolute_url }}" rel="bookmark" title="{{ article }}">{{ article }}</a>
+      {% if request.user.is_superuser %} <span class="edit">[<a href="/admin/blog/article/{{ article.pk }}/">edit</a>]</span>{% endif %}
+    </h1>
+    <h2>
+      <a href="http://martinogden.me/" rel="author">Martin Ogden</a> | 
+      <time datetime="{{ article.published_at|date:'c' }}" pubdate>{{ article.published_at|date:'jS N Y' }}</time> | 
+      <a href="{{ article.get_absolute_url }}#comments" rel="comments">{{ comment_count }} comment{{ comment_count|pluralize }}</a>
+    </h2>
+  </hgroup>
+</header>

@@ -11,7 +11,9 @@ urlpatterns = patterns('',
             'date_field': 'published_at',
             'paginate_by': 10,
             'allow_empty': True,
-            'model': Article}),
+            'queryset': Article.objects.all()\
+                # .annotate(models.Count('comments'))
+        }),
     name='home'),
 
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{1,2})/(?P<slug>[-\w]+)/$',

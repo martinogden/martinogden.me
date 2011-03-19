@@ -102,6 +102,13 @@ small {
     font-size: 0.8em;
 }
 
+.edit {
+  color: @lgrey;
+  a {
+    color: @dblue;
+  }
+}
+
 // Blockquotes
 blockquote {
     padding-left: 15px;
@@ -144,6 +151,45 @@ code {
     .decorator {
         color: rgb(255,198,109);
     }
+}
+
+/**
+ * Forms
+ */
+form span {
+  display: block;
+  _zoom: 1;
+}
+form span:after {
+  .clearfix();
+}
+
+label {
+  width: 100px;
+  padding-right: 20px;
+  text-align: right;
+  float: left;
+  display: block;
+}
+
+input[type="text"], textarea {
+  width: 390px;
+  padding: 5px;
+}
+
+textarea {
+  // 2px extra to match text input width
+  width: 392px;
+}
+
+ul.errorlist {
+  // add form border too
+  width: 380px + 4;
+  padding: 2px 10px;
+  margin-left: 120px;
+  background: #FFB5B9;
+  color: #E30000;
+  list-style-type: none;
 }
 /**
  * Layout
@@ -225,6 +271,11 @@ h2.comments {
     margin-top: 20px;
     padding-top: 10px;
     border-top: 1px solid @elgrey;
+    letter-spacing: -0.05em;
+}
+
+h2.comments.add {
+  border: none;
 }
 article.comment {
     padding-left: 18px;

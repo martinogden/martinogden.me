@@ -6,8 +6,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^', include('blog.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+    (r'^', include('blog.urls')),
+    (r'^comments/', include('django.contrib.comments.urls')),
+    (r'^admin/', include(admin.site.urls)),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

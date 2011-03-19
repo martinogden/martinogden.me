@@ -15,6 +15,7 @@ class Article(BaseTimestampModel):
     content = models.TextField()
 
     published_at = models.DateTimeField()
+    is_commentable = models.BooleanField('allow comments')
 
     tags = TaggableManager()
 

@@ -21,20 +21,7 @@
 {% block content %}
 {% for article in latest %}
 <article id="article-{{ article.pk }}">
-  <header>
-    <!--
-    HTML5 scopes Headings, therefore we 
-      can use H(n>1) headings more semantically in markup -->
-    <hgroup>
-      <h1>
-        <a href="{{ article.get_absolute_url }}" rel="bookmark" title="{{ article }}">{{ article }}</a>
-      </h1>
-      <h2>
-        <a href="http://martinogden.me/" rel="author">Martin Ogden</a> | 
-        <time datetime="{{ article.published_at|date:'c' }}" pubdate>{{ article.published_at|date:'jS N Y' }}</time>
-      </h2>
-    </hgroup>
-  </header>
+  {% include 'blog/partials/article_header.html' %}
   {% firstof article.tease article.content|truncatewords:100 %}
 </article>
 <!-- EOF Articles -->

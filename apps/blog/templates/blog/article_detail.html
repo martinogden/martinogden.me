@@ -1,22 +1,12 @@
 {% extends 'base.html' %}
+{% load comments %}
 
 {% block body_class %}article{% endblock body_class %}
 {% block title %}{{ article }} | {% endblock title %}
 
 {% block content %}
-  <article id="article-1">
-    <header>
-      <!--
-      HTML5 scopes Headings, therefore we 
-        can use H(n>1) headings more semantically in markup -->
-      <hgroup>
-        <h1>{{ article }}</h1>
-        <h2>
-          <a href="http://martinogden.me/" rel="author">Martin Ogden</a> | 
-          <time datetime="{{ article.published_at|date:'c' }}" pubdate>{{ article.published_at|date:'jS N Y' }}</time>
-        </h2>
-      </hgroup>
-    </header>
+  <article id="article-{{ article.pk }}">
+    {% include 'blog/partials/article_header.html' %}
     {{ article.content|safe }}
 
     <footer>
@@ -29,37 +19,16 @@
       </small>
       {% endif %}
     </footer>
-{% comment %}
-    <h2 class="comments">Comments</h2>
-    <section class="comments">
-      <article class="comment">
-        <h4>
-          Posted by <a href="#" rel="author">Desperate Dan</a> on 
-          <time datetime="2011-02-27T00:00:00+00:00">27<sup>th</sup> February 2010</time>. 
-          <a class="permalink" href="#permalink" rel="bookmark">Permalink</a>.
-        </h4>
-        <p>Ooo, I dunno.</p>
-      </article>
-      
-      <article class="comment">
-        <h4>
-          Posted by <a href="#" rel="author">Desperate Dan</a> on 
-          <time datetime="2011-02-27T00:00:00+00:00">27<sup>th</sup> February 2010</time>. 
-          <a class="permalink" href="#permalink" rel="bookmark">Permalink</a>.
-        </h4>
-        <p>Ooo, I dunno.</p>
-      </article>
-      
-      <article class="comment">
-        <h4>
-          Posted by <a href="#" rel="author">Desperate Dan</a> on 
-          <time datetime="2011-02-27T00:00:00+00:00">27<sup>th</sup> February 2010</time>. 
-          <a class="permalink" href="#permalink" rel="bookmark">Permalink</a>.
-        </h4>
-        <p>Ooo, I dunno.</p>
-      </article>
-    </section>
-{% endcomment %}
+    {% if article.is_commentable %}
+      {% render_comment_list for article %}
+
+      <h2 class="comments add">Add your comment</h2>
+      {% with article.get_absolute_url as next %}
+      {% render_comment_form for article %}
+      {% endwith %}
+    {% else %}
+    <h2>Comments have been disabled.</h2>
+    {% endif %}
   </article>
   <!-- EOF Article -->
 
