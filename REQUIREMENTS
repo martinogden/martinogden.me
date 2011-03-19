@@ -4,3 +4,4 @@ path.py
 django-taggit
 south
 fabric
+textile

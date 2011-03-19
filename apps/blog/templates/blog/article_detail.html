@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load comments %}
+{% load comments markup %}
 
 {% block body_class %}article{% endblock body_class %}
 {% block title %}{{ article }} | {% endblock title %}
@@ -7,7 +7,7 @@
 {% block content %}
   <article id="article-{{ article.pk }}">
     {% include 'blog/partials/article_header.html' %}
-    {{ article.content|safe }}
+    {{ article.content|textile }}
 
     <footer>
       {% if article.tags__count %}
@@ -23,11 +23,12 @@
       {% render_comment_list for article %}
 
       <h2 class="comments add">Add your comment</h2>
+      <p>Comments are formatted using <a href="http://en.wikipedia.org/wiki/Textile_(markup_language)" rel="external">Textile</a>. A cheat sheet available <a href="http://en.wikipedia.org/wiki/Textile_(markup_language)#Formatting_help_table">here</a>.</p>
       {% with article.get_absolute_url as next %}
       {% render_comment_form for article %}
       {% endwith %}
     {% else %}
-    <h2>Comments have been disabled.</h2>
+    <h2 class="comments">Comments have been disabled.</h2>
     {% endif %}
   </article>
   <!-- EOF Article -->

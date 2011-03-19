@@ -115,7 +115,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.comments',
+    'django.contrib.markup',
 
+    'textile',
     'south',
     'taggit',
 )
