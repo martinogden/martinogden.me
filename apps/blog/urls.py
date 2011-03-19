@@ -2,6 +2,7 @@ from django.conf.urls.defaults import patterns, include, url
 from django.views.generic import dates
 
 from blog.models import Article
+from blog.feeds import LatestArticlesFeed
 
 urlpatterns = patterns('',
     url(r'$^',
@@ -16,4 +17,6 @@ urlpatterns = patterns('',
             'model': Article,
             'month_format': '%m'}),
     name='article_detail'),
+
+    url(r'^feed/$', LatestArticlesFeed(), name='feed'),
 )

@@ -1,4 +1,4 @@
-# svn+http://code.djangoproject.com/svn/django/trunk/
+svn+http://code.djangoproject.com/svn/django/trunk/
 
 path.py
 django-taggit
