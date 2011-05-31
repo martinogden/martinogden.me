@@ -7,7 +7,7 @@
 {% block content %}
   <article id="article-{{ article.pk }}">
     {% include 'blog/partials/article_header.html' %}
-    {{ article.content|textile }}
+    {{ article.content|safe }}
 
     <footer>
       {% if article.tags__count %}

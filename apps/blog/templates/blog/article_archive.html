@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load markup %}
+
 {% block header %}
 <hgroup>
   <h1>Hello, I'm Martin Ogden.</h1>
@@ -22,7 +22,7 @@
 {% for article in latest %}
 <article id="article-{{ article.pk }}">
   {% include 'blog/partials/article_header.html' %}
-  {{ article.tease|linebreaks|safe }}
+  {{ article.content|safe }}
 </article>
 <!-- EOF Articles -->
 {% endfor %}
