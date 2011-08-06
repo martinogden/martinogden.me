@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load comments markup %}
+{% load comments markup disqus_tags %}
 
 {% block body_class %}article{% endblock body_class %}
 {% block title %}{{ article }} | {% endblock title %}
@@ -20,6 +20,8 @@
       {% endif %}
     </footer>
     {% if article.is_commentable %}
+      {% disqus_show_comments %}
+      {% comment %}
       {% render_comment_list for article %}
 
       <h2 class="comments add">Add your comment</h2>
@@ -27,6 +29,7 @@
       {% with article.get_absolute_url as next %}
       {% render_comment_form for article %}
       {% endwith %}
+      {% endcomment %}
     {% else %}
     <h2 class="comments">Comments have been disabled.</h2>
     {% endif %}

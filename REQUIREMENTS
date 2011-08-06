@@ -5,3 +5,5 @@ django-taggit
 south
 fabric
 textile
+django-disqus
+

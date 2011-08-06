@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     'textile',
     'south',
     'taggit',
+    'disqus',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -144,3 +145,7 @@ LOGGING = {
         },
     }
 }
+
+DISQUS_API_KEY = '4chkhm0ifH4HgaxaeM8LNaMISCIAEkBwEZFa9uSPedZA4aDJIFuyl4kOKKzPAXnA'
+DISQUS_WEBSITE_SHORTNAME = 'martinogden'
+

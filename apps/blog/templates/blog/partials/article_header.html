@@ -1,5 +1,4 @@
-{% load comments %}
-{% get_comment_count for article as comment_count %}
+{% load disqus_tags %}
 
 <header>
   <!--
@@ -13,7 +12,8 @@
     <h2>
       <a href="http://martinogden.me/" rel="author">Martin Ogden</a> | 
       <time datetime="{{ article.published_at|date:'c' }}" pubdate>{{ article.published_at|date:'jS N Y' }}</time> | 
-      <a href="{{ article.get_absolute_url }}#comments" rel="comments">{{ comment_count }} comment{{ comment_count|pluralize }}</a>
+      <a href="{{ article.get_absolute_url }}#disqus_thread" rel="comments">View Comments</a>
+      {% disqus_num_replies %}
     </h2>
   </hgroup>
 </header>
