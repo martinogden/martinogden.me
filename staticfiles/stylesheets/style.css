@@ -423,7 +423,7 @@ section {
     display: block;
     position: relative;
     background: #fff;
-    padding: 80px 50px;
+    padding: 70px 50px;
     width: auto;
     max-width: 860px;
     margin: 0 auto;
@@ -456,7 +456,7 @@ section {
 
 section .post_date {
     position: absolute;
-    top: 80px;
+    top: 70px;
     right: 80px;
 
     text-align: right;
@@ -722,19 +722,19 @@ footer h4, footer h5, footer h6 {
 }
 
 /* Social buttons */
-button.facebook, button.twitter, button.linkedin, button.google_plus, button.pinterest {
+button.github , button.twitter, button.feed {
     height: 40px;
     width: 40px;
     padding: 13px;
     margin-bottom: 5px;
 }
 
-button.facebook {
-    background: #3b5998;
+button.github {
+    background: #555;
 }
 
-button.facebook:hover {
-    background: #2d4577;
+button.github:hover {
+    background: #333;
 }
 
 button.twitter {
@@ -745,27 +745,11 @@ button.twitter:hover {
     background: #19abdc;
 }
 
-button.linkedin {
-    background: #4875b4;
-}
-
-button.linkedin:hover {
-    background: #204c8b;
-}
-
-button.google_plus {
-    background: #444;
-}
-
-button.google_plus:hover {
-    background: #373737;
-}
-
-button.pinterest {
+button.feed{
     background: #d01c2c;
 }
 
-button.pinterest:hover {
+button.feed:hover {
     background: #970b18;
 }
 

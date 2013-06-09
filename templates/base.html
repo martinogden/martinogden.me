@@ -38,8 +38,8 @@
 	<header class="main">
 		{% block header %}
 		<a href="/"class="icon-stack logo">
-			<i class="icon-stop icon-stack-base"></i>
-			<i class="icon-terminal icon-light"></i>
+			{# <i class="icon-stop icon-stack-base"></i> #}
+			<i class="icon-terminal icon-dark"></i>
 		</a>
 		<a href="/">
 			<h4 class="logo-text">Martin Ogden</h4>
@@ -68,13 +68,19 @@
 				<div class="tweet"></div>
 			</div>
 			<div class="four columns">
-				<h5>About Author</h5>
-				<p></p>
+				<h5>Martin Ogden</h5>
+				<p>Co-founder of <a href="http://nmb.rs/">nmb.rs</a>, <a href="https://coderwall.com/martinogden">Programmer</a>, <a href="http://app.strava.com/athletes/600999">Cyclist</a>.</p>
 
 
-				<a href="#"><button class="google_plus"><i class="icon-github"></i></button></a>
-				<a href="http://twitter.com/martinogden"><button class="twitter"><i class="icon-twitter"></i></button></a>
-				<a href="#"><button class="pinterest"><i class="icon-google-plus"></i></button></a>
+				<a href="http://github.com/martinogden">
+					<button class="github"><i class="icon-github"></i></button>
+				</a>
+				<a href="http://twitter.com/martinogden">
+					<button class="twitter"><i class="icon-twitter"></i></button>
+				</a>
+				<a href="/feed/">
+					<button class="feed"><i class="icon-rss"></i></button>
+				</a>
 			</div>
 		</div>
 
@@ -85,18 +91,14 @@
 		</p>
 	</footer>
 
-	<!-- 3rd Party Javascripts -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-	<script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
-
 	<!-- JS
 	================================================== -->
 	<!-- 3rd Party Javascripts -->
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+
 	<script src="{{ STATIC_URL }}javascripts/jquery.tweet.js"></script>
-	<script src="{{ STATIC_URL }}javascripts/jquery.fitvids.js"></script>
 	<script src="{{ STATIC_URL }}javascripts/respond.min.js"></script>
-	<script src="{{ STATIC_URL }}javascripts/highlight.min.js"></script>
 
 	{% block javascripts %}
 	<!-- Custom Javascript -->
