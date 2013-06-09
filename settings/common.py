@@ -117,7 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.markup',
 
-    'textile',
+    'markdown',
     'south',
     'taggit',
     'disqus',

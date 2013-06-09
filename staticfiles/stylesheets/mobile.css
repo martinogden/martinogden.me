@@ -1,9 +1,0 @@
-body {
-  padding: 10px 20px;
-  width: auto;
-}
-p { font-size: 1.2em; }
-small { font-size: 1em; }
-article header h2 { font-size: 1em; }
-header.main h1 { font-size: 2em; }
-body.article article { margin-top: 0; }

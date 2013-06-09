@@ -1,29 +1,50 @@
 {% extends 'base.html' %}
-
-{% block header %}
-<hgroup>
-  <h1>Hello, I'm Martin Ogden.</h1>
-{% comment %}
-  <h2 itemscope itemtype="http://data-vocabulary.org/Person">
-     I'm <a itemprop="name" href="/about" rel="author">Martin Ogden</a>: 
-    <span itemprop="role">Lead Developer</span> @ 
-    <a href="http://cahoona.co.uk/" itemprop="affliation">Cahoona</a>, 
-    <span itemprop="address" itemscope  
-      itemtype="http://data-vocabulary.org/Address">  
-      <span itemprop="locality">Manchester</span>,  
-      <span itemprop="country">UK</span>  
-    </span>
-  </h2>
-</hgroup>
-{% endcomment %}
-{% endblock header %}
+{% load markup %}
 
 {% block content %}
+
 {% for article in latest %}
-<article id="article-{{ article.pk }}">
-  {% include 'blog/partials/article_header.html' %}
-  {{ article.content|safe }}
-</article>
-<!-- EOF Articles -->
+<div class="post_image">
+	<img src="{{ STATIC_URL }}img/ipad-tablet-swipe.jpg">
+</div>
+<section id="article-{{ article.pk }}">
+	<div class="eight columns">
+		<h1 class="post_title">
+			<a href="{{ article.get_absolute_url }}" rel="bookmark" title="{{ article }}">{{ article }}</a>
+		</h1>
+
+		<span class="post_date">{{ article.published_at|date:"DATE_FORMAT" }}</span>
+		{% comment %} TODO plumb discus back in
+		<a href="http://martinogden.me/" rel="author">Martin Ogden</a> |
+		<time datetime="{{ article.published_at|date:'c' }}" pubdate>{{ article.published_at|date:'jS N Y' }}</time> |
+		<a href="{{ article.get_absolute_url }}#disqus_thread" rel="comments">View Comments</a>
+		{% disqus_num_replies %}
+		{% endcomment %}
+
+
+		{{ article.content|markdown|truncatewords_html:100 }}
+
+		<a href="{{ article.get_absolute_url }}">
+			<button class="float_right">READ MORE</button>
+		</a>
+
+	</div>
+	<br class="clear" />
+</section>
 {% endfor %}
+<!-- EOF Articles -->
+
+{% comment %} TODO: plumb pagination in
+<div class="pagination">
+	<button class="light"><i class="icon-chevron-left"></i></button>
+	<button class="light">1</button>
+	<button>2</button>
+	<button class="light">3</button>
+	<button class="light">4</button>
+	<button class="light">5</button>
+	<button class="light">6</button>
+	<button class="light"><i class="icon-chevron-right"></i></button>
+</div>
+{% endcomment %}
+
 {% endblock content %}

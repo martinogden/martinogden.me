@@ -1,39 +1,42 @@
 {% extends 'base.html' %}
 {% load comments markup disqus_tags %}
 
-{% block body_class %}article{% endblock body_class %}
 {% block title %}{{ article }} | {% endblock title %}
 
 {% block content %}
-  <article id="article-{{ article.pk }}">
-    {% include 'blog/partials/article_header.html' %}
-    {{ article.content|safe }}
+<section id="article-{{ article.pk }}" class="article">
+	<h1 class="post_title">{{ article }}</h1>
 
-    <footer>
-      {% if article.tags__count %}
-      <small class="tags">
-        {% for tag in article.tags.all %}
-        <a href="" rel="tag">{{ tag }}</a>{% if forloop.last %}.{% else %},{% endif %}
+	<span class="post_date">{{ article.published_at|date:"DATE_FORMAT" }}</span>
+	{% comment %} TODO plumb discus back in
+	<a href="http://martinogden.me/" rel="author">Martin Ogden</a> |
+	<time datetime="{{ article.published_at|date:'c' }}" pubdate>{{ article.published_at|date:'jS N Y' }}</time> |
+	<a href="{{ article.get_absolute_url }}#disqus_thread" rel="comments">View Comments</a>
+	{% disqus_num_replies %}
+	{% endcomment %}
 
-        {% endfor %}
-      </small>
-      {% endif %}
-    </footer>
-    {% if article.is_commentable %}
-      {% disqus_show_comments %}
-      {% comment %}
-      {% render_comment_list for article %}
+	{{ article.content|markdown }}
 
-      <h2 class="comments add">Add your comment</h2>
-      <p>Comments are formatted using <a href="http://en.wikipedia.org/wiki/Textile_(markup_language)" rel="external">Textile</a>. A cheat sheet available <a href="http://en.wikipedia.org/wiki/Textile_(markup_language)#Formatting_help_table">here</a>.</p>
-      {% with article.get_absolute_url as next %}
-      {% render_comment_form for article %}
-      {% endwith %}
-      {% endcomment %}
-    {% else %}
-    <h2 class="comments">Comments have been disabled.</h2>
-    {% endif %}
-  </article>
-  <!-- EOF Article -->
+	<div class="metadata">
+		<span><i class="icon-pencil"></i><a href="/about/">Martin Ogden</a></span>
+		<span><i class="icon-time"></i>{{ article.published_at|date:"DATE_FORMAT" }}</span>
+		{% if article.tags.exists %}
+		<span class="tags">
+			<i class="icon-list"></i>
+			{% for tag in article.tags.all %}
+			<a href="" rel="tag">{{ tag }}</a>{% if forloop.last %}.{% else %},{% endif %}
+
+			{% endfor %}
+		</span>
+		{% endif %}
+	</div>
+
+	{% if article.is_commentable %}
+		{% disqus_show_comments %}
+	{% else %}
+		<p class="comments">Comments have been disabled.</p>
+	{% endif %}
+</section>
+<!-- EOF Article -->
 
 {% endblock content %}
