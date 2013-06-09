@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
-{% load comments markup disqus_tags %}
+{% load comments markup disqus_tags thumbnail %}
 
 {% block title %}{{ article }} | {% endblock title %}
 
 {% block content %}
+{% if article.image %}
+<div class="post_image">
+	{% thumbnail article.image "860" as im %}
+	<img src="{{ im.url }}">
+	{% endthumbnail %}
+</div>
+{% endif %}
+
 <section id="article-{{ article.pk }}" class="article">
 	<h1 class="post_title">{{ article }}</h1>
 

@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.db import models
 from taggit.managers import TaggableManager
+from sorl.thumbnail import ImageField
 
 from utils.timestamp_model import BaseTimestampModel
 
@@ -16,6 +17,10 @@ class Article(BaseTimestampModel):
 
     published_at = models.DateTimeField()
     is_commentable = models.BooleanField('allow comments')
+
+    image = ImageField(upload_to="blog",
+                       help_text="1000 x 400px",
+                       blank=True, null=True)
 
     tags = TaggableManager()
 

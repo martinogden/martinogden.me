@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
-{% load markup %}
+{% load markup thumbnail %}
 
 {% block content %}
 
 {% for article in latest %}
+{% if forloop.first and article.image %}
 <div class="post_image">
-	<img src="{{ STATIC_URL }}img/ipad-tablet-swipe.jpg">
+	{% thumbnail article.image "860" as im %}
+	<img src="{{ im.url }}">
+	{% endthumbnail %}
 </div>
+{% endif %}
+
 <section id="article-{{ article.pk }}">
 	<div class="eight columns">
 		<h1 class="post_title">

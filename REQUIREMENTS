@@ -6,3 +6,4 @@ south
 fabric
 markdown
 django-disqus
+sorl-thumbnail

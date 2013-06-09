@@ -121,6 +121,7 @@ INSTALLED_APPS = (
     'south',
     'taggit',
     'disqus',
+    'sorl.thumbnail',
 )
 
 # A sample logging configuration. The only tangible logging
