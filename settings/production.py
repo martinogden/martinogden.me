@@ -8,3 +8,6 @@ DATABASES = {
         'NAME': SITE_ROOT / 'db/production.sqlite3',
     }
 }
+
+STATIC_ROOT = '/var/www/martinogden\.me'
+
