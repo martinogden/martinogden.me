@@ -363,6 +363,7 @@ header .menubutton {
     cursor: pointer;
     font-size: 24px;
     line-height: 24px;
+    margin-top: -2px;
 }
 
 /* Search */
@@ -846,12 +847,19 @@ Media queries
         top: 10px;
     }
 
+    .post_image {
+        display: none;
+    }
+
     section {
         padding: 15px 0;
         margin-left: 0;
         margin-right: 0;
     }
 
+    section .post_title {
+        max-width: 100%;
+    }
     section .post_date {
         position: relative;
         top: -25px;
@@ -873,7 +881,11 @@ Media queries
     }
 
     h1, h2, h3, h4, h5 {
-        font-size: 100%;
+        font-size: 130%;
+    }
+
+    code {
+        font-size: 80%;
     }
 }
 
