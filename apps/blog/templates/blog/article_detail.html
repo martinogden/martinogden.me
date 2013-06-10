@@ -13,37 +13,39 @@
 {% endif %}
 
 <section id="article-{{ article.pk }}" class="article">
-	<h1 class="post_title">{{ article }}</h1>
+	<div class="eight columns">
+		<h1 class="post_title">{{ article }}</h1>
 
-	<span class="post_date">{{ article.published_at|date:"DATE_FORMAT" }}</span>
-	{% comment %} TODO plumb discus back in
-	<a href="http://martinogden.me/" rel="author">Martin Ogden</a> |
-	<time datetime="{{ article.published_at|date:'c' }}" pubdate>{{ article.published_at|date:'jS N Y' }}</time> |
-	<a href="{{ article.get_absolute_url }}#disqus_thread" rel="comments">View Comments</a>
-	{% disqus_num_replies %}
-	{% endcomment %}
+		<span class="post_date">{{ article.published_at|date:"DATE_FORMAT" }}</span>
+		{% comment %} TODO plumb discus back in
+		<a href="http://martinogden.me/" rel="author">Martin Ogden</a> |
+		<time datetime="{{ article.published_at|date:'c' }}" pubdate>{{ article.published_at|date:'jS N Y' }}</time> |
+		<a href="{{ article.get_absolute_url }}#disqus_thread" rel="comments">View Comments</a>
+		{% disqus_num_replies %}
+		{% endcomment %}
 
-	{{ article.content|markdown }}
+		{{ article.content|markdown }}
 
-	<div class="metadata">
-		<span><i class="icon-pencil"></i><a href="/about/">Martin Ogden</a></span>
-		<span><i class="icon-time"></i>{{ article.published_at|date:"DATE_FORMAT" }}</span>
-		{% if article.tags.exists %}
-		<span class="tags">
-			<i class="icon-list"></i>
-			{% for tag in article.tags.all %}
-			<a href="" rel="tag">{{ tag }}</a>{% if forloop.last %}.{% else %},{% endif %}
+		<div class="metadata">
+			<span><i class="icon-pencil"></i><a href="/about/">Martin Ogden</a></span>
+			<span><i class="icon-time"></i>{{ article.published_at|date:"DATE_FORMAT" }}</span>
+			{% if article.tags.exists %}
+			<span class="tags">
+				<i class="icon-list"></i>
+				{% for tag in article.tags.all %}
+				<a href="" rel="tag">{{ tag }}</a>{% if forloop.last %}.{% else %},{% endif %}
 
-			{% endfor %}
-		</span>
+				{% endfor %}
+			</span>
+			{% endif %}
+		</div>
+
+		{% if article.is_commentable %}
+			{% disqus_show_comments %}
+		{% else %}
+			<p class="comments">Comments have been disabled.</p>
 		{% endif %}
 	</div>
-
-	{% if article.is_commentable %}
-		{% disqus_show_comments %}
-	{% else %}
-		<p class="comments">Comments have been disabled.</p>
-	{% endif %}
 </section>
 <!-- EOF Article -->
 
