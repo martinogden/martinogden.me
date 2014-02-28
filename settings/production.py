@@ -9,6 +9,7 @@ DATABASES = {
     }
 }
 
+DEBUG = False
 STATIC_ROOT = '/var/www/martinogden.me'
 MEDIA_ROOT = STATIC_ROOT + '/media'
 THUMBNAIL_DEBUG = True
